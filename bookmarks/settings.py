@@ -33,13 +33,13 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+    'account.apps.AccountConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'account.apps.AccountConfig',
 
 ]
 
@@ -77,15 +77,21 @@ WSGI_APPLICATION = 'bookmarks.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.sqlite3',
+#        'NAME': BASE_DIR / 'db.sqlite3',
+#    }
+#}
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'mydb',
-        # 'NAME': os.path.join(BASE_DIR, 'mydb'),
-        'USER': 'myuser',
-        'PASSWORD': 'mypassword',
-        'HOST': '127.0.0.1',
-        'PORT': '', # 8000 is default
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'social',
+        'USER': 'venicios',
+        'PASSWORD': '4153791',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
@@ -132,3 +138,9 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfile')
 
 # Configure Django App for Heroku.
 django_heroku.settings(locals())
+
+LOGIN_REDIRECT_URL = 'dashboard'
+LOGIN_URL = 'login'
+LOGOUT_URL = 'logout'
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
