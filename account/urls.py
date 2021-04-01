@@ -4,6 +4,7 @@ from .import views
 
 urlpatterns = [
     # views urls
+    # views urls
     #path('login/', views.user_login, name='login'),
     path('login/', auth_views.LoginView.as_view(), name='login'),
     path('logout/', auth_views.LoginView.as_view, name='logout'),
