@@ -21,7 +21,7 @@ class ImageCreateForm(forms.ModelForm):
             raise forms.ValidationError('The given URL does not ' \
                                         'match valid image extensions.')
         return url
-
+    # salvando a imagem.
     def save(self, force_insert=False,
              force_update=False,
              commit=True):
