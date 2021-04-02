@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'imagens.apps.ImagensConfig',
+    'imagens.apps.ImagensConfig', # app imagens
 
 ]
 
