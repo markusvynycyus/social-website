@@ -13,7 +13,7 @@ class ImageCreateForm(forms.ModelForm):
             'url': forms.HiddenInput,
         }
 
-    def clean_url(self): # metodo que limpa e valida a url.
+    def clean_url(self):
         url = self.cleaned_data['url']
         valid_extensions = ['jpg', 'jpeg']
         extension = url.rsplit('.', 1)[1].lower()
@@ -21,7 +21,7 @@ class ImageCreateForm(forms.ModelForm):
             raise forms.ValidationError('The given URL does not ' \
                                         'match valid image extensions.')
         return url
-    # salvando a imagem.
+
     def save(self, force_insert=False,
              force_update=False,
              commit=True):

@@ -9,9 +9,9 @@ class Image(models.Model):
                              related_name='images_created',
                              on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
-    slug = models.SlugField(max_length=200, #usado para a construcao de url's.
+    slug = models.SlugField(max_length=200,
                             blank=True)
-    url = models.URLField() # url original da imagem.
+    url = models.URLField()
     image = models.ImageField(upload_to='images/%Y/%m/%d/')
     description = models.TextField(blank=True)
     created = models.DateField(auto_now_add=True,
@@ -27,3 +27,6 @@ class Image(models.Model):
         if not self.slug:
             self.slug = slugify(self.title)
         super().save(*args, **kwargs)
+
+    def get_absolute_url(self):
+        return reverse('images:detail', args=[self.id, self.slug])
