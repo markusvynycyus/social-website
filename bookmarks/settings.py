@@ -28,7 +28,7 @@ SECRET_KEY = 'n*7i*wkz5f60l88kh8--ae(e++o67tfprc4+$2o_c%jasu%hg8'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*','mysite','localhost', '127.0.0.1']# mysite,localhost e 127.0.0.1 -->alteraços para o LoginSocial
 
 
 # Application definition
@@ -41,7 +41,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'images.apps.ImagesConfig', # app images
+    'social_django',
+    'django_extensions',
+    'images.apps.ImagesConfig',# app images
+
 
 ]
 
@@ -154,7 +157,11 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
     'account.authentication.EmailAuthBackend',
-    #'social_core.backends.facebook.FacebookOAuth2',
+    'social_core.backends.facebook.FacebookOAuth2',
     #'social_core.backends.twitter.TwitterOAuth',
     #'social_core.backends.google.GoogleOAuth2',
 ]
+
+SOCIAL_AUTH_FACEBOOK_KEY = '943411553085870' # Facebook App ID
+SOCIAL_AUTH_FACEBOOK_SECRET = '9e717b08da2a19e35090a983cf35f73c' # Facebook App Secret
+SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
